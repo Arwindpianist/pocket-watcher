@@ -8,7 +8,6 @@
     "lint": "eslint .",
     "start": "next start",
     "postinstall": "prisma generate",
-    "vercel-build": "prisma generate && prisma db push --accept-data-loss && next build",
     "db:setup": "node scripts/setup-env.js",
     "db:push": "npm run db:setup && node scripts/run-prisma.js db push",
     "db:studio": "prisma studio",

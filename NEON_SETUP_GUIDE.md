@@ -37,32 +37,16 @@ Choose **ONE** of these methods:
 
 ---
 
-## Method 2: Push via Vercel Deployment (Automatic) 🔄
+## Method 2: One-Time Setup (Recommended After First Push) ✅
 
-I've updated your `package.json` to include `vercel-build` script that automatically pushes the schema on deployment.
+After you've pushed the schema once using Method 1, you're all set! The database tables will persist, and you don't need to push the schema again unless you change the Prisma schema.
 
-### Steps:
+### When to Push Schema Again:
+- Only when you modify `prisma/schema.prisma` (add new fields, tables, etc.)
+- After pushing changes, run `npx prisma db push` locally again
 
-1. **Commit the updated `package.json`:**
-   ```bash
-   git add package.json
-   git commit -m "Add vercel-build script for automatic schema push"
-   git push
-   ```
-
-2. **Configure Vercel to use the custom build command:**
-   - Go to your Vercel project dashboard
-   - Navigate to **Settings** → **General**
-   - Find **Build & Development Settings**
-   - Override the **Build Command** to: `npm run vercel-build`
-   - Save changes
-
-3. **Redeploy:**
-   - Go to **Deployments**
-   - Click **...** on the latest deployment
-   - Click **Redeploy**
-
-4. **Done!** The schema will be pushed automatically during build.
+### Note:
+The build process on Vercel only generates the Prisma Client, it doesn't push the schema to the database. This is intentional and follows best practices.
 
 ---
 
