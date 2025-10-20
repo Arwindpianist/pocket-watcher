@@ -1,0 +1,63 @@
+═══════════════════════════════════════════════════════════════
+   VERCEL ENVIRONMENT VARIABLES
+   For: pocketwatcher.arwindpianist.store
+═══════════════════════════════════════════════════════════════
+
+Copy these into Vercel Dashboard → Project Settings → Environment Variables
+
+───────────────────────────────────────────────────────────────
+1. DATABASE_URL (Required) - Neon PostgreSQL
+───────────────────────────────────────────────────────────────
+Get your connection string from Neon Dashboard → Connection Details
+Format: postgresql://username:password@ep-xxx.region.aws.neon.tech/database?sslmode=require
+
+Example:
+postgresql://neondb_owner:abc123@ep-cool-name-123456.us-east-1.aws.neon.tech/pocketwatcher?sslmode=require
+
+───────────────────────────────────────────────────────────────
+2. NEXTAUTH_URL (Required)
+───────────────────────────────────────────────────────────────
+https://pocketwatcher.arwindpianist.store
+
+───────────────────────────────────────────────────────────────
+3. NEXTAUTH_SECRET (Required)
+───────────────────────────────────────────────────────────────
+Generated for you:
+ZF3UqT8Qtk2Si23HAz89alMISs42qexi0lnUnpfeg1k=
+
+OR generate a new one:
+node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
+
+───────────────────────────────────────────────────────────────
+4. GOOGLE_CLIENT_ID (Optional)
+───────────────────────────────────────────────────────────────
+[Your Google OAuth Client ID]
+
+Only needed if you want Google Sign-In
+
+───────────────────────────────────────────────────────────────
+5. GOOGLE_CLIENT_SECRET (Optional)
+───────────────────────────────────────────────────────────────
+[Your Google OAuth Client Secret]
+
+Only needed if you want Google Sign-In
+
+═══════════════════════════════════════════════════════════════
+   IMPORTANT NOTES
+═══════════════════════════════════════════════════════════════
+
+Before deploying:
+✓ Update prisma/schema.prisma: Change provider from "sqlite" to "postgresql"
+✓ Push code to GitHub
+✓ Import project to Vercel
+✓ Add all environment variables above
+✓ Deploy!
+
+After first deployment:
+✓ Configure custom domain in Vercel → Settings → Domains
+✓ Update DNS: Add CNAME record pointing to cname.vercel-dns.com
+✓ Wait for DNS propagation (5-60 minutes)
+✓ SSL certificate will be automatically provisioned
+
+═══════════════════════════════════════════════════════════════
+
